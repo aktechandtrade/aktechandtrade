@@ -1,0 +1,213 @@
+/**
+ * AK Tech & Trade - Animations Stylesheet
+ * Contains all animation-related styles for the website
+ */
+
+/* Add link to this file in index.html after styles.css */
+
+/* ---------- REVEAL ANIMATIONS ON SCROLL ---------- */
+
+/* Base styles for animated elements */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.scrolled {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animations for cards */
+.services-grid .service-card:nth-child(1),
+.trade-grid .trade-card:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.services-grid .service-card:nth-child(2),
+.trade-grid .trade-card:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.services-grid .service-card:nth-child(3),
+.trade-grid .trade-card:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.services-grid .service-card:nth-child(4),
+.trade-grid .trade-card:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+/* About section animations */
+.about-text {
+  transition-delay: 0.1s;
+}
+
+.about-image {
+  transition-delay: 0.3s;
+}
+
+/* Fade-in animation for header when sticky */
+header.sticky {
+  animation: fadeDown 0.5s ease forwards;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulsing button animation */
+.btn-primary {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
+
+/* Loading animation for form submission */
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+}
+
+.btn-loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Social media icon hover effects */
+.social-links a {
+  overflow: hidden;
+  position: relative;
+}
+
+.social-links a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-dark);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+.social-links a:hover::before {
+  transform: translateY(0);
+}
+
+/* Testimonial transition effects */
+.testimonial {
+  transition: opacity 0.5s ease;
+}
+
+/* Hero text animation */
+.hero-content h2 {
+  animation: fadeInUp 1s ease 0.3s forwards;
+  opacity: 0;
+}
+
+.hero-content p {
+  animation: fadeInUp 1s ease 0.5s forwards;
+  opacity: 0;
+}
+
+.cta-buttons {
+  animation: fadeInUp 1s ease 0.7s forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navigation link hover effect */
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+
+.nav-links a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Card hover animations */
+.service-card:hover,
+.trade-card:hover {
+  animation: cardFloat 0.5s ease forwards;
+}
+
+@keyframes cardFloat {
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* Contact form field focus animation */
+.form-group input:focus,
+.form-group textarea:focus {
+  animation: formFieldFocus 0.3s ease forwards;
+}
+
+@keyframes formFieldFocus {
+  from {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+  to {
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+  }
+}
